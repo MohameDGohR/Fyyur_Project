@@ -1,0 +1,24 @@
+{% extends 'layouts/main.html' %} {% block title %}Show Search{% endblock %} {% block content %}
+
+<div class="page-header">
+    <h1>Shows Search!</h1>
+</div>
+<p class="lead"> Show Search </p>
+
+
+
+<div class="row shows">
+    {%for show in result %}
+    <div class="col-sm-4">
+        <div class="tile tile-show">
+            <img src="{{ show.artist_show.image_link }}" alt="Artist Image" />
+            <h4>{{ show.start_time }}</h4>
+            <h5><a href="/artists/{{ show.artist_show.id }}">{{ show.artist_show.name }}</a></h5>
+            <p>playing at</p>
+            <h5><a href="/venues/{{ show.venue_show.id }}">{{ show.venue_show.name }}</a></h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
